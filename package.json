@@ -1,0 +1,31 @@
+{
+  "name": "weblog-ad",
+  "version": "0.0.0",
+  "description": "weblog active directory module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/csokt/weblog-ad.git"
+  },
+  "keywords": [
+    "log",
+    "active",
+    "directory"
+  ],
+  "author": "csokt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/csokt/weblog-ad/issues"
+  },
+  "homepage": "https://github.com/csokt/weblog-ad",
+  "dependencies": {
+    "autobahn": "^0.9.6",
+    "ip": "^0.3.2",
+    "ldapjs": "^0.7.1",
+    "lodash": "^3.8.0",
+    "when": "^3.7.3"
+  }
+}
