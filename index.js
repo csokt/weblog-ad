@@ -40,22 +40,21 @@ var weblogAd = function(setup) {
         filter: table.filter,
         scope: table.scope
       }
+      var fields
 
       client.search(table.searchdn, opts, function(err, request) {
         if (err) { console.log('search err', err); process.exit(8) }
         var res = []
 
         request.on('searchEntry', function(entry) {
-//          flds = _.object(table.fields, table.fields)
-          flds = _.defaults(_.pick(entry.object, table.fields), _.object(table.fields, table.fields))
-          console.dir(flds)
-          res.push(_.values(flds))
+          fields = _.pick(_.defaults(entry.object, _.object(table.fields, _.map(table.fields, function() { return '' }))), table.fields)
+          res.push(_.values(fields))
         })
         request.on('error', function(err) {
-          console.error('error: ' + err.message)
+          console.log('error: ' + err.message)
           d.resolve(res)
         })
-        request.on('end', function(result) {
+        request.on('end', function() {
           d.resolve(res)
         })
       })
